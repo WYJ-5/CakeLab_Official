@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db'); // 這裡路徑要對準你的 db 設定檔
+const sequelize = require('../config/db');
 
 const Order = sequelize.define('Order', {
     id: {
@@ -20,7 +20,7 @@ const Order = sequelize.define('Order', {
         allowNull: false
     },
     cake_item_string: {
-        type: DataTypes.TEXT, // 存入 JSON 字串
+        type: DataTypes.TEXT, 
         allowNull: false
     },
     notes: {
