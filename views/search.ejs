@@ -1,0 +1,22 @@
+<%- include('partials/head', { title: '訂單查詢' }) %>
+<body>
+    <%- include('partials/navbar') %>
+
+    <header class="page-header" style="height: 50vh; background-image: url('img/caketable.png');">
+        <div class="header-content"><h1>Order Inquiry</h1></div>
+    </header>
+
+    <section class="container" style="max-width: 800px; min-height: 400px; text-align: center;">
+        <h2 style="margin-bottom: 30px; font-family: 'Playfair Display';">查詢您的訂單</h2>
+        
+        <div style="margin-bottom: 40px;">
+            <input type="tel" id="searchPhone" placeholder="請輸入訂購時的電話號碼" 
+                   style="padding: 12px; width: 300px; border: 1px solid #ccc; border-radius: 4px;">
+            <button class="btn" onclick="searchOrder()">查詢</button>
+        </div>
+
+        <div id="resultArea"></div>
+    </section>
+
+    <script src="js/search.js"></script>
+    <%- include('partials/footer') %>

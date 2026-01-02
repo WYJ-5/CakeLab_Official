@@ -1,0 +1,55 @@
+<%- include('partials/head', { title: '訂購商品' }) %>
+<body>
+    <%- include('partials/navbar') %>
+
+    <header class="page-header" style="background-image: url('img/cakedisplay2.png');">
+        <div class="header-content"><h1>Order</h1></div>
+    </header>
+
+    <section class="container" style="max-width: 1000px; padding: 50px 20px;">
+        <form id="orderForm">
+            <div class="cart-section-title">訂購商品一覽</div>
+            <table class="cart-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                    <tr style="background: #f9f9f9;">
+                        <th width="15%">產品圖示</th><th width="25%">產品名稱</th>
+                        <th width="15%">單價</th><th width="15%">數量</th>
+                        <th width="15%">小計</th><th width="15%">取消</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody"></tbody>
+            </table>
+
+            <div class="cart-summary-box" style="text-align: right; font-size: 1.2rem; font-weight: bold; margin-bottom: 30px;">
+                總計金額: <span id="displayTotal" class="grand-total">$0</span>
+            </div>
+
+            <input type="hidden" id="cake_item_string" name="cake_item_string">
+
+            <h3 style="margin: 30px 0 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">訂購人資訊</h3>
+            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>貴賓姓名 (Name)</label>
+                    <input type="text" id="customer_name" class="form-control" required style="width: 100%; padding: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>聯絡電話 (Phone)</label>
+                    <input type="tel" id="phone" class="form-control" required style="width: 100%; padding: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>預計取貨日期 (Date)</label>
+                    <input type="date" id="pickup_date" class="form-control" required style="width: 100%; padding: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>備註 (Notes)</label>
+                    <textarea id="notes" class="form-control" style="width: 100%; padding: 8px; height: 80px;"></textarea>
+                </div>
+                <div class="text-center" style="margin-top: 40px;">
+                    <button type="submit" class="btn" style="width: 100%; background: #8b5e3c; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer;">確認結帳 (Submit Order)</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <script src="js/order.js"></script>
+    <%- include('partials/footer') %>

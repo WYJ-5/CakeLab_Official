@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<%- include('partials/head', { title: '品牌故事' }) %>
+<body>
+    <%- include('partials/navbar') %>
+
+    <header class="page-header" style="background-image: url('img/cakestory1.png');">
+        <div class="header-content"><h1>Story</h1></div>
+    </header>
+
+    <section class="container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 20px;">純粹，源自於堅持。</h2>
+                <p style="color: #666; margin-bottom: 20px;">
+                    創立於 2015 年， Cake Lab 的初衷很簡單：找回甜點最原始的感動。
+                </p>
+                <p style="color: #666;">「甜點不只是食物，而是一種傳遞幸福的媒介。」</p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <img src="img/cakestory2.png" alt="Chef">
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
