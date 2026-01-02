@@ -194,5 +194,3 @@ sequelize.sync({ force: false }).then(() => {
 }).catch(err => {
     console.error('資料庫同步失敗:', err);
 });
-
-
