@@ -1,0 +1,48 @@
+<%- include('../partials/head', { title: '後台訂單管理' }) %>
+<body class="admin-page">
+    <div style="display: flex;">
+        <nav style="width: 200px; background: #333; color: white; min-height: 100vh; padding: 20px;">
+            <h3>Cake Lab 後台</h3>
+            <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                <li><a href="/admin/products" style="color: white; text-decoration: none;">商品管理</a></li>
+                <li style="margin-top: 10px;"><a href="/admin/orders" style="color: white; text-decoration: none;">訂單管理</a></li>
+            </ul>
+        </nav>
+
+        <main style="flex: 1; padding: 40px;">
+            <h2>所有訂單清單</h2>
+            <table class="cart-table" style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #eee;">
+                        <th>訂單 ID</th>
+                        <th>訂購人</th>
+                        <th>電話</th>
+                        <th>取貨日期</th>
+                        <th>訂購內容</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody id="adminOrderTable"></tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+        async function loadAllOrders() {
+            const res = await fetch('/api/admin/orders');
+            const orders = await res.json();
+            const tbody = document.getElementById('adminOrderTable');
+            tbody.innerHTML = orders.map(order => `
+                <tr style="border-bottom: 1px solid #ddd; text-align: center;">
+                    <td style="padding: 15px;">#${order.id}</td>
+                    <td>${order.customer_name}</td>
+                    <td>${order.phone}</td>
+                    <td>${order.pickup_date}</td>
+                    <td style="text-align: left;">${order.cake_item_string}</td>
+                    <td>${order.notes || '-'}</td>
+                </tr>
+            `).join('');
+        }
+        window.onload = loadAllOrders;
+    </script>
+</body>

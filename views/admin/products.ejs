@@ -1,0 +1,56 @@
+<%- include('../partials/head', { title: 'Cake Lab - 後台商品管理' }) %>
+<style>
+    .admin-container { display: flex; min-height: 100vh; }
+    .sidebar { width: 200px; background: #333; color: white; padding: 20px; }
+    .sidebar a { color: white; text-decoration: none; display: block; margin-bottom: 15px; }
+    .main-content { flex: 1; padding: 40px; background: #f9f9f9; }
+    .admin-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .admin-table th, .admin-table td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    .form-box { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .tag-hot-admin { background: #e74c3c; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+</style>
+
+<div class="admin-container">
+    <nav class="sidebar">
+        <h2>管理後台</h2>
+        <a href="/admin/products">🍰 商品管理</a>
+        <a href="/admin/orders">📋 訂單管理</a>
+        <a href="/">🏠 回到首頁</a>
+    </nav>
+
+    <main class="main-content">
+        <h2>商品管理</h2>
+
+        <div class="form-box">
+            <h3>新增蛋糕商品</h3>
+            <form id="addProductForm" onsubmit="addProduct(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <input type="text" id="newName" placeholder="蛋糕名稱" required style="padding: 8px;">
+                <input type="number" id="newPrice" placeholder="價格" required style="padding: 8px;">
+                <input type="text" id="newImg" placeholder="圖片路徑 (如: img/cake1.png)" required style="padding: 8px;">
+                <label style="display: flex; align-items: center;">
+                    <input type="checkbox" id="newFeatured"> 設定為 HOT 推薦商品
+                </label>
+                <textarea id="newDesc" placeholder="商品簡介" style="grid-column: 1 / span 2; padding: 8px; height: 60px;"></textarea>
+                <button type="submit" class="btn" style="background: #8b5e3c; color: white; border: none; padding: 10px; cursor: pointer;">新增商品</button>
+            </form>
+        </div>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>縮圖</th>
+                    <th>名稱</th>
+                    <th>價格</th>
+                    <th>狀態</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="adminProductList">
+                </tbody>
+        </table>
+    </main>
+</div>
+
+<script src="/js/admin_products.js"></script>
+<%- include('../partials/footer') %>

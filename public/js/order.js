@@ -100,3 +100,30 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
         alert('系統連線錯誤，請確認伺服器運作中。');
     }
 });
+
+// 後台手動新增訂單
+async function adminAddOrder(event) {
+    event.preventDefault();
+    const formData = {
+        customer_name: document.getElementById('adminCustName').value,
+        phone: document.getElementById('adminCustPhone').value,
+        pickup_date: document.getElementById('adminDate').value,
+        cake_item_string: document.getElementById('adminItems').value, // 格式如: 紅絲絨 x 1
+        notes: document.getElementById('adminNotes').value
+    };
+
+    try {
+        const res = await fetch('/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        if (res.ok) {
+            alert('後台手動下單成功');
+            loadAllOrders(); // 重新整理訂單列表
+        }
+    } catch (err) {
+        alert('下單失敗');
+    }
+}
