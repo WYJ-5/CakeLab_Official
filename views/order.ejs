@@ -1,4 +1,8 @@
-<%- include('partials/head', { title: '訂購商品' }) %>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <%- include(typeof is_admin !== 'undefined' ? '../partials/head' : 'partials/head', { title: ' 訂購商品' }) %>
+</head>
 
 <body>
     <%- include('partials/navbar') %>
@@ -54,3 +58,5 @@
 
     <script src="js/order.js"></script>
     <%- include('partials/footer') %>
+</body>
+</html>

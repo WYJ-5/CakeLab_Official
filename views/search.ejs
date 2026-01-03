@@ -1,5 +1,8 @@
-<%- include('partials/head', { title: '訂單查詢' }) %>
-
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <%- include(typeof is_admin !== 'undefined' ? '../partials/head' : 'partials/head', { title: ' 訂單查詢' }) %>
+</head>
 
 <body>
     <%- include('partials/navbar') %>
@@ -22,3 +25,5 @@
 
     <script src="js/search.js"></script>
     <%- include('partials/footer') %>
+</body>
+</html>

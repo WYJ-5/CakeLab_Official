@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<%- include('partials/head', { title: '品牌故事' }) %>
-
-
+<head>
+    <%- include(typeof is_admin !== 'undefined' ? '../partials/head' : 'partials/head', { title: ' 品牌故事' }) %>
+    </head>
 <body>
     <%- include('partials/navbar') %>
 
@@ -26,3 +26,5 @@
     </section>
 
     <%- include('partials/footer') %>
+</body>
+</html>

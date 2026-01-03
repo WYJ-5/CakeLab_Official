@@ -1,5 +1,8 @@
-<%- include('../partials/head', { title: '後台管理 - 商品' }) %>
-<style>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <%- include('../partials/head', { title: '後台管理 - 商品' }) %>
+    <style>
     /* 統一全後台佈局樣式 - 確保與 orders.ejs 完。全。一致 */
     :root { --sidebar-width: 250px; --primary-color: #8b5e3c; }
     body { margin: 0; background: #f8f9fa; font-family: "Microsoft JhengHei", sans-serif; }
@@ -23,9 +26,12 @@
     .admin-table th, .admin-table td { padding: 15px; text-align: center; border-bottom: 1px solid #f4f4f4; }
     .admin-table th { background: #f8f8f8; font-weight: 600; color: #888; text-align: left; }
     .tag-hot-admin { background: #e74c3c; color: white; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
-</style>
+    </style>
 
-<div class="admin-wrapper">
+</head>
+
+<body>
+    <div class="admin-wrapper">
     <nav class="sidebar">
         <div class="sidebar-header"><h3>Cake Lab 後台</h3></div>
         <a href="/admin/products" class="nav-item active">🍰 商品管理</a>
@@ -59,3 +65,5 @@
 </div>
 <script src="/js/admin_products.js"></script>
 <%- include('../partials/footer') %>
+</body>
+</html>

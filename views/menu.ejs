@@ -1,5 +1,9 @@
-<%- include('partials/head', { title: '商品目錄' }) %>
-<style>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <%- include(typeof is_admin !== 'undefined' ? '../partials/head' : 'partials/head', { title: ' 商品目錄' }) %>
+    
+    <style>
     /* 推薦標籤樣式 */
     .tag-hot {
         position: absolute;
@@ -32,11 +36,11 @@
     }
     .qty-btn { background: #eee; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
     .delete-item { color: #e74c3c; cursor: pointer; font-size: 0.8rem; margin-left: 10px; }
-</style>
-
-
+    </style>
+</head>
 
 <body>
+
     <%- include('partials/navbar') %>
 
     <header class="page-header" style="background-image: url('img/cakedisplay.png');">
@@ -77,3 +81,5 @@
 
     <script src="js/menu.js"></script>
     <%- include('partials/footer') %>
+</body>
+</html>
