@@ -49,7 +49,9 @@ app.get('/search', (req, res) => res.render('search'));
 app.get('/admin/login', (req, res) => res.render('admin/login'));
 app.post('/admin/login', (req, res) => {
     const { username, password } = req.body;
-    if (username === 'admin' && password === '1234') {
+    
+    // 改從環境變數讀取
+    if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
         req.session.isAdmin = true;
         res.redirect('/admin/products');
     } else {
