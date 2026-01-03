@@ -40,16 +40,54 @@
     </nav>
 
     <main class="main-content">
-        <h2 style="margin-bottom: 30px;">訂單資料維護</h2>
-        <div class="card">
-            <table class="admin-table">
-                <thead>
-                    <tr><th width="60px">ID</th><th>訂購人</th><th>電話</th><th>取貨日期</th><th>品項內容</th><th>備註</th><th>操作</th></tr>
-                </thead>
-                <tbody id="adminOrderTable"></tbody>
-            </table>
+    <h2 style="margin-bottom: 30px;">訂單資料維護</h2>
+    
+    <div class="card">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th width="60px">ID</th>
+                    <th>訂購人</th>
+                    <th>電話</th>
+                    <th>取貨日期</th>
+                    <th>品項內容</th>
+                    <th>備註</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="adminOrderTable"></tbody>
+        </table>
+    </div>
+
+    <div id="editModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 style="margin-top: 0; margin-bottom: 20px;">修改訂單資料</h3>
+            
+            <input type="hidden" id="editId">
+
+            <label>訂購人姓名</label>
+            <input type="text" id="editName">
+
+            <label>聯絡電話</label>
+            <input type="text" id="editPhone">
+
+            <label>取貨日期</label>
+            <input type="date" id="editDate">
+
+            <label>備註事項</label>
+            <textarea id="editNotes" rows="4"></textarea>
+
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button onclick="submitEdit()" style="flex: 1; padding: 12px; background: #8b5e3c; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+                    儲存更新
+                </button>
+                <button onclick="closeModal()" style="flex: 1; padding: 12px; background: #eee; color: #666; border: none; border-radius: 6px; cursor: pointer;">
+                    取消
+                </button>
+            </div>
         </div>
-    </main>
+    </div>
+</main>
 </div>
 
 <script>
