@@ -1,7 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "[ejs]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.htmlWhitespaceSensitivity": "ignore"
-}
