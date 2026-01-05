@@ -51,7 +51,7 @@ function renderProducts(items) {
     });
 }
 
-// 購物車與彈窗邏輯 (維持不變)
+// 購物車與彈窗邏輯
 function addToCart(id, name, price, img) {
     let cart = JSON.parse(localStorage.getItem('cake_cart')) || [];
     const idx = cart.findIndex(i => i.id === id);

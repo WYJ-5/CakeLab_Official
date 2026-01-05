@@ -1,11 +1,11 @@
 // config/db.js
-require('dotenv').config(); // 務必確保這一行在最上面！
+require('dotenv').config(); 
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
     process.env.DB_NAME,
-    process.env.DB_USERNAME, // 如果這裡抓不到，就會變成 ''
-    process.env.DB_PASSWORD, // 如果這裡抓不到，就會變成 NO password
+    process.env.DB_USERNAME, 
+    process.env.DB_PASSWORD, 
     {
         host: process.env.DB_HOST,
         dialect: 'mysql',

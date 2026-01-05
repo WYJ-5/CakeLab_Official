@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: 'mysql',
-    logging: false, // 除非要除錯，否則關閉 SQL 紀錄
+    logging: false, 
   }
 );
 

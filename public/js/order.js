@@ -1,6 +1,6 @@
 let cartItems = [];
 
-// 初始化：載入購物車
+// 載入購物車
 window.addEventListener('load', () => {
     cartItems = JSON.parse(localStorage.getItem('cake_cart')) || [];
     renderTable();
@@ -101,7 +101,7 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
     }
 });
 
-// 後台手動新增訂單
+// 後台新增訂單
 async function adminAddOrder(event) {
     event.preventDefault();
     const formData = {
@@ -121,7 +121,7 @@ async function adminAddOrder(event) {
 
         if (res.ok) {
             alert('後台手動下單成功');
-            loadAllOrders(); // 重新整理訂單列表
+            loadAllOrders(); 
         }
     } catch (err) {
         alert('下單失敗');

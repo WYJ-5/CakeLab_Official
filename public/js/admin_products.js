@@ -51,8 +51,8 @@ async function addProduct(event) {
         
         if (response.ok) {
             alert('商品新增成功！');
-            loadAdminProducts(); // 重新整理列表
-            event.target.reset(); // 清空表單
+            loadAdminProducts(); 
+            event.target.reset(); 
         }
     } catch (err) {
         alert('新增失敗');

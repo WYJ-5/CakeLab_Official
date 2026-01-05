@@ -4,19 +4,19 @@ const Product = require('./models/Product');
 const Category = require('./models/Category');
 const Order = require('./models/Order');
 
-// --- 1. 登入驗證 中間件 (Middleware) ---
+// 登入驗證 (Middleware)
 function checkAuth(req, res, next) {
     if (req.session.isAdmin) {
         return next();
     }
-    // 如果是 API 請求且未登入，回傳 401 錯誤碼
+
     if (req.originalUrl.startsWith('/api/admin')) {
         return res.status(401).json({ message: '登入逾時，請重新登入' });
     }
     res.redirect('/admin/login');
 }
 
-// --- 2. 公開頁面路由 ---
+// 公開頁面路由 
 router.get('/', (req, res) => res.render('index'));
 router.get('/menu', (req, res) => res.render('menu'));
 router.get('/order', (req, res) => res.render('order'));
@@ -24,12 +24,12 @@ router.get('/about', (req, res) => res.render('about'));
 router.get('/contact', (req, res) => res.render('contact'));
 router.get('/search', (req, res) => res.render('search'));
 
-// --- 3. 登入相關路由 ---
+// 登入相關路由
 router.get('/admin/login', (req, res) => res.render('admin/login'));
 router.post('/admin/login', (req, res) => {
     const { username, password } = req.body;
     
-    // 從環境變數讀取帳密
+    // 從環境變數(.env)讀取帳密
     if (username === process.env.ADMIN_USER && password === process.env.ADMIN_PASS) {
         req.session.isAdmin = true;
         res.redirect('/admin/products');
@@ -42,11 +42,11 @@ router.get('/admin/logout', (req, res) => {
     res.redirect('/admin/login');
 });
 
-// --- 4. 受保護的後台管理頁面 ---
+// 受保護的後台管理頁面
 router.get('/admin/products', checkAuth, (req, res) => res.render('admin/products'));
 router.get('/admin/orders', checkAuth, (req, res) => res.render('admin/orders'));
 
-// --- 5. 公開 API 路由 (前台使用) ---
+// 公開 API 路由
 router.get('/api/products', async (req, res) => {
     try {
         const products = await Product.findAll();
@@ -74,7 +74,7 @@ router.get('/api/orders/search', async (req, res) => {
     } catch (err) { res.status(500).json([]); }
 });
 
-// --- 6. 受保護的管理端 API (後台使用) ---
+// 受保護的管理端 API (後台)
 router.use('/api/admin', checkAuth);
 
 // 訂單 API (取得/更新/刪除)

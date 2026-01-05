@@ -37,7 +37,7 @@ async function searchOrder() {
         `;
 
         orders.forEach(order => {
-            // 修正：使用 createdAt 與 cake_item_string 對應 Sequelize 模型
+
             const createDate = new Date(order.createdAt).toLocaleDateString();
             const pickupDate = new Date(order.pickup_date).toLocaleDateString();
 
